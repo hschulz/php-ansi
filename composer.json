@@ -1,0 +1,27 @@
+{
+    "name": "hschulz/php-ansi",
+    "description": "Uses ANSI codes to format strings.",
+    "type": "library",
+    "keywords": ["ansi", "console", "color", "php"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Hauke Schulz",
+            "email": "hauke27@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "hschulz\\ANSI\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "apcu-autoloader": true
+    }
+}

@@ -5,7 +5,8 @@ namespace hschulz\ANSI;
 /**
  * This class provides the ability to format strings with ANSI escape codes.
  */
-class Ansi {
+class Ansi
+{
 
     // <editor-fold defaultstate="collapsed" desc="Color constants">
 
@@ -216,7 +217,8 @@ class Ansi {
     /**
      * Initializes the object.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->shouldEnd = true;
         $this->options   = [];
     }
@@ -227,7 +229,8 @@ class Ansi {
      * @param string $foregroundColor
      * @return void
      */
-    public function setForegroundColor(string $foregroundColor): void {
+    public function setForegroundColor(string $foregroundColor): void
+    {
         $this->options['fg_color'] = $foregroundColor;
     }
 
@@ -237,7 +240,8 @@ class Ansi {
      * @param string $backgroundColor
      * @return void
      */
-    public function setBackgroundColor(string $backgroundColor): void {
+    public function setBackgroundColor(string $backgroundColor): void
+    {
         $this->options['bg_color'] = $backgroundColor;
     }
 
@@ -247,7 +251,8 @@ class Ansi {
      * @param bool $isBold
      * @return void
      */
-    public function setBold(bool $isBold): void {
+    public function setBold(bool $isBold): void
+    {
         $this->options['bold'] = $isBold ? self::ANSI_BOLD : '';
     }
 
@@ -257,7 +262,8 @@ class Ansi {
      * @param bool $isItalic
      * @return void
      */
-    public function setItalic(bool $isItalic): void {
+    public function setItalic(bool $isItalic): void
+    {
         $this->options['italic'] = ((bool) $isItalic) ? self::ANSI_ITALIC : '';
     }
 
@@ -267,7 +273,8 @@ class Ansi {
      * @param bool $isUnderlined
      * @return void
      */
-    public function setUnderlined(bool $isUnderlined): void {
+    public function setUnderlined(bool $isUnderlined): void
+    {
         $this->options['underlined'] = ((bool) $isUnderlined) ? self::ANSI_UNDERLINE : '';
     }
 
@@ -277,7 +284,8 @@ class Ansi {
      * @param bool $isBlinking
      * @return void
      */
-    public function setBlinking(bool $isBlinking): void {
+    public function setBlinking(bool $isBlinking): void
+    {
         $this->options['blink'] = $isBlinking ? self::ANSI_BLINK : '';
     }
 
@@ -287,7 +295,8 @@ class Ansi {
      * @param bool $isInverse
      * @return void
      */
-    public function setInverse(bool $isInverse): void {
+    public function setInverse(bool $isInverse): void
+    {
         $this->options['inverse'] = $isInverse ? self::ANSI_INVERSE : '';
     }
 
@@ -297,7 +306,8 @@ class Ansi {
      * @param bool $isHidden
      * @return void
      */
-    public function setHidden(bool $isHidden): void {
+    public function setHidden(bool $isHidden): void
+    {
         $this->options['hide'] = $isHidden ? self::ANSI_HIDDEN : '';
     }
 
@@ -308,7 +318,8 @@ class Ansi {
      * @param bool $shouldEnd
      * @return void
      */
-    public function shouldEnd(bool $shouldEnd): void {
+    public function shouldEnd(bool $shouldEnd): void
+    {
         $this->shouldEnd = $shouldEnd;
     }
 
@@ -318,7 +329,8 @@ class Ansi {
      * @param string $string The string to format
      * @return string The formatted string
      */
-    public function formatString(string $string): string {
+    public function formatString(string $string): string
+    {
         $end = ($this->shouldEnd) ? self::ANSI_END : '';
         return implode('', $this->options) . $string . $end;
     }

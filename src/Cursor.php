@@ -5,7 +5,8 @@ namespace hschulz\ANSI;
 /**
  *
  */
-class Cursor {
+class Cursor
+{
 
     /**
      * Contains the complete set of operations.
@@ -19,7 +20,8 @@ class Cursor {
      *
      * @param string $sequence A sequence of ANSI escape codes
      */
-    public function __construct(string $sequence = '') {
+    public function __construct(string $sequence = '')
+    {
         $this->sequence = $sequence;
     }
 
@@ -31,7 +33,8 @@ class Cursor {
      * @param int $y The new y position
      * @return void
      */
-    public function moveTo(int $x = 0, int $y = 0): void {
+    public function moveTo(int $x = 0, int $y = 0): void
+    {
         $this->sequence .= "\033[" . $x . ';' . $y . 'H';
     }
 
@@ -42,7 +45,8 @@ class Cursor {
      *
      * @param int $value The number of lines to move up
      */
-    public function up(int $value = 0): void {
+    public function up(int $value = 0): void
+    {
         $this->sequence .= "\033[" . $value . 'A';
     }
 
@@ -54,7 +58,8 @@ class Cursor {
      * @param int $value The number of lines to move down
      * @return void
      */
-    public function down(int $value = 0): void {
+    public function down(int $value = 0): void
+    {
         $this->sequence .= "\033[" . $value . 'B';
     }
 
@@ -64,7 +69,8 @@ class Cursor {
      * @param int $value The increment
      * @return void
      */
-    public function forward(int $value = 0): void {
+    public function forward(int $value = 0): void
+    {
         $this->sequence .= "\033[" . $value . 'C';
     }
 
@@ -74,7 +80,8 @@ class Cursor {
      * @param int $value The increment
      * @return void
      */
-    public function backward(int $value = 0): void {
+    public function backward(int $value = 0): void
+    {
         $this->sequence .= "\033[" . $value . 'D';
     }
 
@@ -85,7 +92,8 @@ class Cursor {
      *
      * @return void
      */
-    public function savePosition(): void {
+    public function savePosition(): void
+    {
         echo "\033[s";
     }
 
@@ -96,7 +104,8 @@ class Cursor {
      *
      * @return void
      */
-    public function restorePosition(): void {
+    public function restorePosition(): void
+    {
         echo "\033[u";
     }
 
@@ -104,7 +113,8 @@ class Cursor {
      *
      * @return void
      */
-    public function eraseDisplay(): void {
+    public function eraseDisplay(): void
+    {
         $this->sequence .= "\033[2J";
     }
 
@@ -112,7 +122,8 @@ class Cursor {
      *
      * @return void
      */
-    public function eraseCurrentLine(): void {
+    public function eraseCurrentLine(): void
+    {
         $this->sequence .= "\033[K";
     }
 
@@ -120,7 +131,8 @@ class Cursor {
      *
      * @return void
      */
-    public function execute(): void {
+    public function execute(): void
+    {
         echo $this->sequence;
         $this->sequence = '';
     }
@@ -129,7 +141,8 @@ class Cursor {
      *
      * @return string A sequence of ANSI escape codes
      */
-    public function getSequence(): string {
+    public function getSequence(): string
+    {
         return $this->sequence;
     }
 
@@ -138,7 +151,8 @@ class Cursor {
      * @param string $sequence A string consisting of ANSI escape codes
      * @return void
      */
-    public function setSequence(string $sequence): void {
+    public function setSequence(string $sequence): void
+    {
         $this->sequence = $sequence;
     }
 }

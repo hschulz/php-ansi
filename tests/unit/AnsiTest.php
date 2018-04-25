@@ -2,20 +2,18 @@
 
 namespace hschulz\ANSI\Tests;
 
-use \PHPUnit\Framework\TestCase;
 use \hschulz\ANSI\Ansi;
+use \PHPUnit\Framework\TestCase;
 
 /**
  *
  */
 final class AnsiTest extends TestCase
 {
-
     const TEST_TEXT = 'Sphinx of black quartz, judge my vow';
 
     public function testCanSetForegroundColor()
     {
-
         $ansi = new Ansi();
         $ansi->setForegroundColor(Ansi::FG_CYAN);
 
@@ -28,7 +26,6 @@ final class AnsiTest extends TestCase
 
     public function testCanSetBackgroundColor()
     {
-
         $ansi = new Ansi();
         $ansi->setBackgroundColor(Ansi::BG_CYAN);
 

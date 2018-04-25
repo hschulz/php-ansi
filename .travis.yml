@@ -1,0 +1,13 @@
+language: php
+
+php: 7.1
+
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer update
+
+script:
+    - vendor/bin/phpunit --bootstrap=vendor/autoload.php tests/unit/
+    - vendor/bin/phpunit --bootstrap=vendor/autoload.php --whitelist=src/ --coverage-clover=coverage.xml tests/unit/
+
+after_success: bash <(curl -s https://codecov.io/bash)

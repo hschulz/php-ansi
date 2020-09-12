@@ -1,158 +1,159 @@
 <?php
 
-namespace hschulz\ANSI;
+declare(strict_types=1);
+
+namespace Hschulz\ANSI;
 
 /**
  * This class provides the ability to format strings with ANSI escape codes.
  */
 class Ansi
 {
-
     // <editor-fold defaultstate="collapsed" desc="Color constants">
 
     /**
      * Black background color.
      * @var string
      */
-    const BG_BLACK = "\033[40m";
+    public const BG_BLACK = "\033[40m";
 
     /**
      * Red background color.
      * @var string
      */
-    const BG_RED = "\033[41m";
+    public const BG_RED = "\033[41m";
 
     /**
      * Green background color.
      * @var string
      */
-    const BG_GREEN = "\033[42m";
+    public const BG_GREEN = "\033[42m";
 
     /**
      * Yellow background color.
      * @var string
      */
-    const BG_YELLOW = "\033[43m";
+    public const BG_YELLOW = "\033[43m";
 
     /**
      * Blue background color.
      * @var string
      */
-    const BG_BLUE = "\033[44m";
+    public const BG_BLUE = "\033[44m";
 
     /**
      * Magenta background color.
      * @var string
      */
-    const BG_MAGENTA = "\033[45m";
+    public const BG_MAGENTA = "\033[45m";
 
     /**
      * Cyan background color.
      * @var string
      */
-    const BG_CYAN = "\033[46m";
+    public const BG_CYAN = "\033[46m";
 
     /**
      * Light gray background color.
      * @var string
      */
-    const BG_LIGHT_GRAY = "\033[47m";
+    public const BG_LIGHT_GRAY = "\033[47m";
 
     /**
      * Black font color.
      * @var string
      */
-    const FG_BLACK = "\033[0;30m";
+    public const FG_BLACK = "\033[0;30m";
 
     /**
      * Dark grey font color.
      * @var string
      */
-    const FG_DARK_GREY = "\033[1;30m";
+    public const FG_DARK_GREY = "\033[1;30m";
 
     /**
      * Blue font color.
      * @var string
      */
-    const FG_BLUE = "\033[0;34m";
+    public const FG_BLUE = "\033[0;34m";
 
     /**
      * Light blue font color.
      * @var string
      */
-    const FG_LIGHT_BLUE = "\033[1;34m";
+    public const FG_LIGHT_BLUE = "\033[1;34m";
 
     /**
      * Green font color.
      * @var string
      */
-    const FG_GREEN = "\033[0;32m";
+    public const FG_GREEN = "\033[0;32m";
 
     /**
      * Light green font color.
      * @var string
      */
-    const FG_LIGHT_GREEN = "\033[1;32m";
+    public const FG_LIGHT_GREEN = "\033[1;32m";
 
     /**
      * Cyan font color.
      * @var string
      */
-    const FG_CYAN = "\033[0;36m";
+    public const FG_CYAN = "\033[0;36m";
 
     /**
      * Light cyan font color.
      * @var string
      */
-    const FG_LIGHT_CYAN = "\033[1;36m";
+    public const FG_LIGHT_CYAN = "\033[1;36m";
 
     /**
      * Red font color.
      * @var string
      */
-    const FG_RED = "\033[0;31m";
+    public const FG_RED = "\033[0;31m";
 
     /**
      * Light red font color.
      * @var string
      */
-    const FG_LIGHT_RED = "\033[1;31m";
+    public const FG_LIGHT_RED = "\033[1;31m";
 
     /**
      * Purple font color.
      * @var string
      */
-    const FG_PURPLE = "\033[0;35m";
+    public const FG_PURPLE = "\033[0;35m";
 
     /**
      * Light purple font color.
      * @var string
      */
-    const FG_LIGHT_PURPLE = "\033[1;35m";
+    public const FG_LIGHT_PURPLE = "\033[1;35m";
 
     /**
      * Brown font color.
      * @var string
      */
-    const FG_BROWN = "\033[0;33m";
+    public const FG_BROWN = "\033[0;33m";
 
     /**
      * Yellow font color.
      * @var string
      */
-    const FG_YELLOW = "\033[1;33m";
+    public const FG_YELLOW = "\033[1;33m";
 
     /**
      * Light grey font color.
      * @var string
      */
-    const FG_LIGHT_GREY = "\033[0;37m";
+    public const FG_LIGHT_GREY = "\033[0;37m";
 
     /**
      * White font color.
      * @var string
      */
-    const FG_WHITE = "\033[1;37m";
+    public const FG_WHITE = "\033[1;37m";
 
     // </editor-fold>
 
@@ -162,43 +163,43 @@ class Ansi
      * Escape code to end ANSI formatting.
      * @var string
      */
-    const ANSI_END = "\033[0m";
+    public const ANSI_END = "\033[0m";
 
     /**
      * Escape code for bold text.
      * @var string
      */
-    const ANSI_BOLD = "\033[1m";
+    public const ANSI_BOLD = "\033[1m";
 
     /**
      * Escape code for italic text.
      * @var string
      */
-    const ANSI_ITALIC = "\033[3m";
+    public const ANSI_ITALIC = "\033[3m";
 
     /**
      * Escape code to underline text.
      * @var string
      */
-    const ANSI_UNDERLINE = "\033[4m";
+    public const ANSI_UNDERLINE = "\033[4m";
 
     /**
      * Escape code to make text blink.
      * @var string
      */
-    const ANSI_BLINK = "\033[5m";
+    public const ANSI_BLINK = "\033[5m";
 
     /**
      * Escape code to switch foreground and background color of text.
      * @var string
      */
-    const ANSI_INVERSE = "\033[7m";
+    public const ANSI_INVERSE = "\033[7m";
 
     /**
      * Escape code to hide text.
      * @var string
      */
-    const ANSI_HIDDEN = "\033[8m";
+    public const ANSI_HIDDEN = "\033[8m";
 
     // </editor-fold>
 
@@ -206,13 +207,13 @@ class Ansi
      * Indicates whether the escaped string should end all ANSI sequences.
      * @var bool
      */
-    private $shouldEnd = true;
+    protected bool $shouldEnd = true;
 
     /**
      * Stores all escape sequences.
      * @var array
      */
-    private $options = [];
+    protected array $options = [];
 
     /**
      * Initializes the object.
@@ -318,7 +319,7 @@ class Ansi
      * @param bool $shouldEnd
      * @return void
      */
-    public function shouldEnd(bool $shouldEnd): void
+    public function shouldEnd(bool $shouldEnd = true): void
     {
         $this->shouldEnd = $shouldEnd;
     }

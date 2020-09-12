@@ -1,18 +1,19 @@
 <?php
 
-namespace hschulz\ANSI;
+declare(strict_types=1);
+
+namespace Hschulz\ANSI;
 
 /**
  *
  */
 class Cursor
 {
-
     /**
      * Contains the complete set of operations.
      * @var string
      */
-    private $sequence = '';
+    protected string $sequence = '';
 
     /**
      * Creates a new instance of the object. You can provide a sequence of

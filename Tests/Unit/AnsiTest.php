@@ -1,16 +1,16 @@
 <?php
 
-namespace hschulz\ANSI\Tests;
+namespace Hschulz\ANSI\Tests\Unit;
 
-use \hschulz\ANSI\Ansi;
-use \PHPUnit\Framework\TestCase;
+use Hschulz\ANSI\Ansi;
+use PHPUnit\Framework\TestCase;
 
 /**
  *
  */
 final class AnsiTest extends TestCase
 {
-    const TEST_TEXT = 'Sphinx of black quartz, judge my vow';
+    private const TEST_TEXT = 'Sphinx of black quartz, judge my vow';
 
     public function testCanSetForegroundColor()
     {
